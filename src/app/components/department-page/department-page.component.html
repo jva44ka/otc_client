@@ -1,0 +1,14 @@
+<mat-card>
+  <button mat-icon-button color="primary" (click)="navigateToMain()">
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
+  <mat-card-title>{{department.name}}</mat-card-title>
+  <mat-card-subtitle>Количество сотрудников: <b>{{department.employees.length}}</b></mat-card-subtitle>
+  <mat-card-subtitle>Средняя зп: <b>{{department.salary}}$</b></mat-card-subtitle>
+  <mat-card-content class="employees-list">
+    Сотрудники:
+    <button mat-raised-button
+            *ngFor="let member of department.employees"
+            (click)="navigateToEmployee(member.id)">{{member.name}}</button>
+  </mat-card-content>
+</mat-card>
