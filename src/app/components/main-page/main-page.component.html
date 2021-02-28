@@ -1,0 +1,8 @@
+<button mat-stroked-button (click)="navigateToNewEmployee()">Создать работника</button>
+<div id="main-page-wrapper">
+  <app-departments-list-item
+    *ngFor="let dep of departments"
+    [department]="dep"
+    (checkInfoDepartment)="navigateToDepartment($event.id)">
+  </app-departments-list-item>
+</div>

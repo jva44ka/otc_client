@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title>{{department.name}}</mat-card-title>
+  <mat-card-subtitle>Количество сотрудников: <b>{{department.employees.length}}</b></mat-card-subtitle>
+  <mat-card-subtitle>Средняя зп: <b>{{department.salary}}$</b></mat-card-subtitle>
+  <mat-card-content>
+    Сотрудники:
+    <div class="department-members-list">
+      <div class="member-name" *ngFor="let member of department.employees">{{member.name}}</div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-stroked-button color="bas" (click)="checkInfoDepartment.emit(department)">Подробнее</button>
+  </mat-card-actions>
+</mat-card>
