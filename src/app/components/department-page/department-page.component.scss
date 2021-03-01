@@ -1,0 +1,9 @@
+.employees-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 40vw;
+
+  > button {
+    margin: 3px;
+  }
+}

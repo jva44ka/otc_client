@@ -1,0 +1,25 @@
+<mat-card>
+  <button mat-icon-button color="primary" (click)="navigateToMain()">
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
+  <mat-form-field class="example-full-width">
+    <mat-label>Имя</mat-label>
+    <input matInput placeholder="ФИО" [value]="employee?.name" (change)="nameChange($event)">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Департамент</mat-label>
+    <mat-select [value]="selectedDepartment?.name" (valueChange)="departmentChange($event)">
+      <mat-option *ngFor="let dep of departments" [value]="dep.name">
+        {{dep.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>ЗП</mat-label>
+    <input matInput placeholder="Зарплата" [value]="employee?.salary" (change)="salaryChange($event)">
+  </mat-form-field>
+
+  <mat-card-actions>
+    <button mat-stroked-button color="warn" (click)="submit()">{{submitLabel}}</button>
+  </mat-card-actions>
+</mat-card>
