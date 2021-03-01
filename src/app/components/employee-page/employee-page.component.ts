@@ -21,7 +21,6 @@ export class EmployeePageComponent implements OnDestroy {
     this.subs.push(
       this.route.params.subscribe(params => {
         const employeeId: string = params['employeeId'];
-        console.log(employeeId);
 
         this.employee = this.mainStore.getEmployeeById(employeeId);
         this.department = this.mainStore.getDepartmentByEmployeeId(employeeId);
