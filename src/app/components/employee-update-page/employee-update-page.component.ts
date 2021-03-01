@@ -22,7 +22,6 @@ export class EmployeeUpdatePageComponent implements OnInit, OnDestroy {
       this.route.params.subscribe(params => {
         this.employeeId = params['employeeId'];
         this.mainStore.setChangingEmployee(this.employeeId);
-        console.log(this.employeeId);
       })
     );
   }

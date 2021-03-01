@@ -39,10 +39,7 @@ export class MainStoreService {
 
   setChangingEmployee(id: string): void {
     const employee: Employee = this.getEmployeeById(id);
-    console.log('changing to ');
-    console.log(employee);
     this.changingEmployee$.next(employee);
-    console.log(this.changingEmployee$.getValue());
   }
 
   getEmployeeById(id: string): Employee {

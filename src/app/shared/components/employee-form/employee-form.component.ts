@@ -31,18 +31,11 @@ export class EmployeeFormComponent implements OnInit, OnDestroy {
               private router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.mainStore);
-    console.log(this);
-    console.log(this.isUpdating);
     if (this.isUpdating) {
       this.employee = this.mainStore.changingEmployee$.getValue();
       this.subs.push(
         this.mainStore.changingEmployee$.subscribe(e => {
           this.employee = e;
-          console.log('change employee: ');
-          console.log(e);
-          console.log('changed employee: ');
-          console.log(this.employee);
         })
       );
     } else {
@@ -50,15 +43,10 @@ export class EmployeeFormComponent implements OnInit, OnDestroy {
       this.subs.push(
         this.mainStore.newEmployee$.subscribe(e => {
           this.employee = e;
-          console.log('new employee: ');
-          console.log(e);
-          console.log('changed employee: ');
-          console.log(this.employee);
         })
       );
     }
 
-    console.log(this);
     this.departments = this.mainStore.departmentStore$.getValue();
     this.selectedDepartment = this.departments.find(d => d.id === this.employee.departmentId);
   }
@@ -75,11 +63,9 @@ export class EmployeeFormComponent implements OnInit, OnDestroy {
 
   departmentChange(departmentName: string): void {
     this.selectedDepartment = this.mainStore.getDepartmentByName(departmentName);
-    console.log(this.selectedDepartment);
   }
 
   nameChange(event: Event): void {
-    console.log(event.target);
     this.employee.name = (event.target as any).value;
   }
 
@@ -88,13 +74,10 @@ export class EmployeeFormComponent implements OnInit, OnDestroy {
   }
 
   submit(): void {
-    console.log(this.isUpdating);
     if (this.isUpdating) {
       this.employee.departmentId = this.selectedDepartment.id;
       this.mainStore.updateEmployee();
     } else {
-      console.log(this.employee);
-      console.log(this.mainStore.newEmployee$);
       this.employee.departmentId = this.selectedDepartment.id;
       this.mainStore.createEmployee();
     }
